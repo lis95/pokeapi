@@ -7,12 +7,13 @@ const Pokemon = (props) => {
     const { params } = match;
     const { pokemonId } = params;
     const [pokemon, setPokemon] = useState(undefined);
-    const serviceImg = async () => {
-      let data = await serviceDetail(pokemonId)
-      setPokemon(data);
-    }
+ 
     useEffect(() => {
-        serviceImg()
+      const serviceImg = async () => {
+        let data = await serviceDetail(pokemonId)
+        setPokemon(data);
+      }
+      serviceImg()
       }, [pokemonId]);
 
 
